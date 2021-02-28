@@ -10,7 +10,7 @@ export class AppController {
     return this.appService.getHello();
   }
 }
-
+/*
 
 const texto: string = "";
 const comillaSimple: string = '';
@@ -74,3 +74,4 @@ console.log("array3Push:",array3.push(1))
 console.log("array3:",array3)
 console.log("array3Pop:",array3.pop())
 console.log("array3:",array3)
+*/
