@@ -1,0 +1,32 @@
+
+<h1>Actualizar datos fabricante</h1>
+
+
+
+
+<form action="/fabricante/editar-fabricante?id=<%=fabricante[0].id%>" method="post">
+    <table>
+        <tr>
+            <td><label for="nombre">Nombre: </label></td>
+            <td><input id="nombre" type="text" name="nombre" placeholder="<%=fabricante[0].nombre%>" value="<%=fabricante[0].nombre%>"></td>
+        </tr>
+        <tr>
+            <td><label for="pais">Pais: </label></td>
+            <td><input id="pais" type="text" name="pais" placeholder="<%=fabricante[0].pais%>" value="<%=fabricante[0].pais%>"></td>
+        </tr>
+        <tr>
+            <td><label for="ubicacion">Ubicacion: </label></td>
+            <td><input id="ubicacion" type="text" name="ubicacion" placeholder="<%=fabricante[0].ubicacion%>" value="<%=fabricante[0].ubicacion%>"></td>
+        </tr>
+        <tr>
+            <td><label for="correo">Correo: </label></td>
+            <td><input id="correo" type="text" name="correo" placeholder="<%=fabricante[0].correo%>" value="<%=fabricante[0].correo%>"></td>
+        </tr>
+    </table>
+    <button type="submit">Actualizar</button>
+    <button type="reset">Reset</button>
+</form>
+
+<a href="/fabricante/fabricantes">
+    <button>Regresar a fabricantes</button>
+</a>

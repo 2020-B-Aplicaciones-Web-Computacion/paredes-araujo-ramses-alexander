@@ -1,0 +1,34 @@
+<h1>Crear Celular</h1>
+<form action="/celular/crear-celular?nombreFab=<%=nombre%>" method="post">
+
+    <table>
+        <tr>
+            <td><label for="nombre">Nombre: </label></td>
+            <td><input id="nombre" type="text" name="nombre" ></td>
+        </tr>
+        <tr>
+            <td><label for="modelo">Modelo: </label></td>
+            <td><input id="modelo" type="text" name="modelo" ></td>
+        </tr>
+        <tr>
+            <td><label for="procesador">Procesador: </label></td>
+            <td><input id="procesador" type="text" name="procesador" ></td>
+        </tr>
+        <tr>
+            <td><label for="memoria">Memoria: </label></td>
+            <td><input id="memoria" type="number" name="memoria" ></td>
+        </tr>
+        <tr>
+            <td><label for="fkFabricante" style="display: none">fkFa: </label></td>
+            <td><input id="fkFabricante" type="number" style="display: none" name="fkFabricante"  value=<%=fkFabricante%> ></td>
+        </tr>
+    </table>
+    <button type="submit ">Crear</button>
+    <button type="reset">Reset</button>
+</form>
+
+
+<br>
+<a href="/fabricante/fabricantes">
+    <button>Regresar a fabricantes</button>
+</a>

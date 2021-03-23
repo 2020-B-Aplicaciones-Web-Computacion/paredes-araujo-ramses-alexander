@@ -1,22 +1,26 @@
-import {Module} from "@nestjs/common";
-import {UsuarioController} from "./usuario.controller";
-
+import {Module} from '@nestjs/common';
+import {UsuarioController} from './usuario.controller';
+import {UsuarioService} from './usuario.service';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {UsuarioEntity} from './usuario.entity';
+// @Decorador()
 @Module({
-    imports: [ //Modulos
-
+    imports: [ // Modulos
+        TypeOrmModule.forFeature(
+            [UsuarioEntity],
+            'default' // nombre cadena de conexión
+        )
     ],
-    controllers: [ // controladores
+    controllers: [ // Controladores
         UsuarioController
-
     ],
-    providers: [ //Servicios DECLARADOS
-
+    providers: [ // Servicios DECLARADOS
+        UsuarioService
     ],
-    exports:[ //Servicios EXPORTADOS
-
-    ]
+    exports: [ // Servicios EXPORTADOS
+        UsuarioService
+    ],
 })
-
-export class UsuarioModule{
+export class UsuarioModule {
 
 }

@@ -1,0 +1,77 @@
+
+<h1> LISTA FABRICANTES</h1>
+
+<!-- http://localhost:3000/fabricante/fabricantes?busqueda=Fabricante+1&mensaje=2 -->
+
+<style>
+    .mensaje{
+        border: solid 1px #c3a062;
+        width: 100%;
+        margin: 10px;
+    }
+</style>
+
+<% if(parametrosConsulta.mensaje){ %>
+    <div class="mensaje">
+        <%= parametrosConsulta.mensaje %>
+    </div>
+<% }%>
+
+
+<a href="/fabricante/crear-fabricante">
+    <button>AÑADIR FABRICANTE</button>
+</a>
+<br>
+<br>
+
+
+<form action="/fabricante/fabricantes" method="get">
+    <label for="busqueda">Búsqueda</label>
+    <input id="busqueda" type="text" name="busqueda">
+
+    <button type="submit">
+        Buscar
+    </button>
+</form>
+
+
+
+<table border="1">
+    <tr>
+        <th style="display: none" >ID</th>
+        <th>Nombre</th>
+        <th>Pais</th>
+        <th>Ubicacion</th>
+        <th>Correo</th>
+        <th COLSPAN=3>Opciones</th>
+    </tr>
+    <% for (let fabricante of datos[0]){ %>
+        <tr>
+            <td style="display: none" ><%= fabricante.id %></td>
+            <td><%= fabricante.nombre %></td>
+            <td><%= fabricante.pais %></td>
+            <td><%= fabricante.ubicacion %></td>
+            <td><%= fabricante.correo %></td>
+            <td>
+                <a href="/fabricante/editar-fabricante?id=<%=fabricante.id%>">
+                    <button>Editar</button>
+                </a>
+            </td>
+            <td>
+                <a href="/fabricante/eliminar-fabricante?id=<%=fabricante.id%>">
+                    <button>Eliminar</button>
+                </a>
+            </td>
+            <td>
+                <a href="/celular/celularesFabricante?idFab=<%=fabricante.id%>&nombreFab=<%=fabricante.nombre%>">
+                    <button>Celulares</button>
+                </a>
+            </td>
+        </tr>
+    <% } %>
+</table>
+<br>
+
+<a href="/inicio">
+    <button>REGRESAR A INICIO</button>
+</a>

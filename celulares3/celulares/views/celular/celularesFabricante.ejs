@@ -1,0 +1,66 @@
+<h1> LISTA CELULARES</h1>
+
+
+
+<style>
+    .mensaje{
+        border: solid 1px #c3a062;
+        width: 100%;
+        margin: 10px;
+    }
+</style>
+
+<% if(parametrosConsulta.mensaje){ %>
+    <div class="mensaje">
+        <%= parametrosConsulta.mensaje %>
+    </div>
+<% }%>
+<br>
+<br>
+Fabricante:
+<%= nombreFab  %>
+<br>
+<br>
+
+<a href="/celular/crear-celular?fkFabricante=<%= idFab %>&nombreFab=<%=nombreFab%>">
+    <button>AÑADIR CELULAR</button>
+</a>
+<br>
+<br>
+
+
+<table border="1">
+    <tr>
+        <th style="display: none" >ID</th>
+        <th>Nombre</th>
+        <th>Modelo</th>
+        <th>Procesador</th>
+        <th>Memoria</th>
+        <th colspan="2">Opciones</th>
+    </tr>
+    <% for (let celular of datos[0]){ %>
+        <tr>
+            <td style="display: none" ><%= celular.id %></td>
+            <td><%= celular.nombre %></td>
+            <td><%= celular.modelo %></td>
+            <td><%= celular.procesador %></td>
+            <td><%= celular.memoria %></td>
+            <td>
+                <a href="/celular/editar-celular?id=<%=celular.id%>&idFab=<%=idFab%>&nombreFab=<%=nombreFab%>">
+                    <button>Editar</button>
+                </a>
+            </td>
+            <td>
+                <a href="/celular/eliminar-celular?id=<%=celular.id%>&idFab=<%=idFab%>&nombreFab=<%=nombreFab%>">
+                    <button>Eliminar</button>
+                </a>
+            </td>
+        </tr>
+    <% } %>
+</table>
+
+<br>
+<a href="/fabricante/fabricantes">
+    <button>Regresar a fabricantes</button>
+</a>
+<br>

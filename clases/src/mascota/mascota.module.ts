@@ -1,21 +1,27 @@
-import {Module} from "@nestjs/common";
+import {Module} from '@nestjs/common';
+import {MascotaService} from './mascota.service';
+import {MascotaEntity} from './mascota.entity';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {MascotaController} from './mascota.controller';
 
-
+// @Decorador()
 @Module({
-    imports: [ //Modulos
-
+    imports: [ // Modulos
+        TypeOrmModule.forFeature(
+            [MascotaEntity],
+            'default' // nombre cadena de conexión
+        )
     ],
-    controllers: [ // controladores
-
+    controllers: [ // Controladores
+        MascotaController,
     ],
-    providers: [ //Servicios DECLARADOS
-
+    providers: [ // Servicios DECLARADOS
+        MascotaService
     ],
-    exports:[ //Servicios EXPORTADOS
-
-    ]
+    exports: [ // Servicios EXPORTADOS
+        MascotaService
+    ],
 })
-
-export class MascotaModule{
+export class MascotaModule {
 
 }
